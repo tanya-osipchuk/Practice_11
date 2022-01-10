@@ -1,0 +1,18 @@
+# сортировка подсчётом
+def counting_sort(sequince):
+    min_val = min(sequince)
+    max_val = max(sequince)
+    support = [0 for i in range(max_val - min_val + 1)]
+    for element in sequince:
+        support[element - min_val] += 1
+    index = 0
+    for i in range(len(support)):
+        for element in range(support[i]):
+            sequince[index] = i + min_val
+            index += 1
+    return None        
+   
+random_list_of_nums = list(map(int, input("Водите целые числа, которые необходимо отсортировать, через пробел: ").split())) 
+counting_sort(random_list_of_nums)  
+
+print("Список введенных чисел в отсортированном порядке: ", random_list_of_nums)   
