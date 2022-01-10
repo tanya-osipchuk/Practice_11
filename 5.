@@ -1,0 +1,16 @@
+def merge(lst1, lst2):
+    res, it1, it2 = [], iter(lst1), iter(lst2)
+    element1 = next(it1, None)
+    element2 = next(it2, None)
+    while element1 is not None or element2 is not None:
+        if element1 is None or (element2 is not None and element2 < element1):
+            res.append(element2)
+            element2 = next(it2, None) 
+        else:
+            res.append(element1)
+            element1 = next(it1, None)
+    return res
+
+a,b = [1, 2, 3, 4], [5, 6, 7, 8, 9, 10]
+
+print(merge(a, b))
